@@ -32,6 +32,16 @@ const dateRange = (date) => {
   return { $gte: start, $lt: end };
 };
 
+const localDateKey = (date) => {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: process.env.APP_TIMEZONE || 'Asia/Colombo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(date).reduce((result, part) => ({ ...result, [part.type]: part.value }), {});
+  return `${parts.year}-${parts.month}-${parts.day}`;
+};
+
 const animalProjection = { _id: 1, tagId: 1, name: 1, species: 1 };
 
 const listRecords = async (req, res, next) => {
@@ -115,8 +125,7 @@ const deleteRecord = async (req, res, next) => {
 const getSummary = async (req, res, next) => {
   try {
     const farmer = new mongoose.Types.ObjectId(req.user.id);
-    const now = new Date();
-    const todayStart = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+    const todayStart = parseDate(localDateKey(new Date()));
     const tomorrow = new Date(todayStart); tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
     const weekStart = new Date(todayStart); const day = weekStart.getUTCDay(); weekStart.setUTCDate(weekStart.getUTCDate() - (day === 0 ? 6 : day - 1));
     const base = { farmer };

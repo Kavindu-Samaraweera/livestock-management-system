@@ -326,3 +326,17 @@ legend { padding: 0; margin-bottom: 0.25rem; }
     display: grid;
   }
 }
+
+/* Use the supplied Livestock Manager artwork wherever the brand mark appears. */
+.brand-dot {
+  width: 11rem;
+  height: 5.2rem;
+  border-radius: 0;
+  color: transparent;
+  background: url('./assets/livestock-manager-logo.png') center / contain no-repeat;
+  font-size: 0;
+}
+.sidebar-brand > span:last-child, .public-brand > span:last-child, .mobile-brand strong { display: none; }
+.sidebar-brand .brand-dot { width: 12rem; height: 6.2rem; }
+.public-brand .brand-dot { width: 12rem; height: 5rem; }
+.mobile-brand .brand-dot { width: 7rem; height: 3.2rem; }
