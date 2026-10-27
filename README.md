@@ -308,6 +308,88 @@ Contributions, suggestions, and bug reports are welcome.
 
 Please do not include credentials, private data, or environment files in contributions.
 
+## 🗃️ Entity Relationship Diagram
+
+The core livestock-management data model is represented below. The diagram uses Mermaid ER notation and renders natively in GitHub and compatible Markdown viewers.
+
+```mermaid
+erDiagram
+    USER ||--o{ ANIMAL : manages
+    BREED ||--o{ ANIMAL : classifies
+    ANIMAL ||--o{ HEALTH_RECORD : has
+    ANIMAL ||--o{ VACCINATION : receives
+    ANIMAL ||--o{ FEED_RECORD : consumes
+    ANIMAL ||--o{ MILK_PRODUCTION : produces
+    ANIMAL ||--o{ SALE : included_in
+    USER ||--o{ SALE : records
+
+    USER {
+        int user_id PK
+        string name
+        string email UK
+        string role
+    }
+
+    BREED {
+        int breed_id PK
+        string name
+        string description
+    }
+
+    ANIMAL {
+        int animal_id PK
+        int owner_id FK
+        int breed_id FK
+        string tag_number UK
+        string name
+        string species
+        string gender
+        date date_of_birth
+        string status
+    }
+
+    HEALTH_RECORD {
+        int health_record_id PK
+        int animal_id FK
+        date record_date
+        string diagnosis
+        string treatment
+        string notes
+    }
+
+    VACCINATION {
+        int vaccination_id PK
+        int animal_id FK
+        string vaccine_name
+        date vaccination_date
+        date next_due_date
+    }
+
+    FEED_RECORD {
+        int feed_record_id PK
+        int animal_id FK
+        date feed_date
+        string feed_type
+        decimal quantity
+    }
+
+    MILK_PRODUCTION {
+        int production_id PK
+        int animal_id FK
+        date production_date
+        decimal quantity_litres
+    }
+
+    SALE {
+        int sale_id PK
+        int animal_id FK
+        int recorded_by FK
+        date sale_date
+        decimal amount
+        string buyer_name
+    }
+```
+
 ## 📄 License
 
 No license has been specified yet. Add a `LICENSE` file if you intend to grant others permission to use, modify, and distribute this project.
