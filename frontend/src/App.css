@@ -197,12 +197,12 @@ legend { padding: 0; margin-bottom: 0.25rem; }
 .public-site { min-height: 100vh; color: #18352d; background: #f4f6ef; }
 .public-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem clamp(1rem, 5vw, 4.5rem); border-bottom: 1px solid #dfe8da; background: rgba(244,246,239,.94); backdrop-filter: blur(14px); }
 .public-brand { display: flex; align-items: center; gap: .65rem; border: 0; padding: 0; color: #18352d; background: none; cursor: pointer; font: 1rem/1 Georgia, serif; text-align: left; }.public-brand strong { font-size: 1.15rem; }.public-brand .brand-dot { width: 2.4rem; height: 2.4rem; }
-.public-nav { display: flex; align-items: center; gap: 1.5rem; }.public-nav button { border: 0; padding: .45rem .1rem; color: #708176; background: none; cursor: pointer; font-size: .82rem; font-weight: 800; }.public-nav button:hover, .public-nav button.active { color: #2f694a; }
+.public-nav { display: flex; align-items: center; gap: 1.7rem; }.public-nav button { border: 0; padding: .5rem .15rem; color: #708176; background: none; cursor: pointer; font-size: .95rem; font-weight: 800; }.public-nav button:hover, .public-nav button.active { color: #2f694a; }
 .public-actions { display: flex; align-items: center; gap: .8rem; }.public-actions .primary-button, .public-hero-actions .primary-button { border: 0; border-radius: 8px; padding: .75rem 1rem; color: #fff; background: #246345; cursor: pointer; font-weight: 800; }.public-actions .primary-button:hover, .public-hero-actions .primary-button:hover { background: #1b5037; }
 .public-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr); align-items: center; gap: clamp(2rem, 7vw, 7rem); max-width: 1240px; margin: 0 auto; padding: clamp(4rem, 10vw, 8rem) clamp(1.2rem, 5vw, 4rem); }.public-hero-copy h1, .public-section-heading h1 { max-width: 720px; margin: .5rem 0 1.3rem; color: #18352d; font: 500 clamp(3rem, 7vw, 6.4rem)/.95 Georgia, serif; letter-spacing: -.06em; }.public-hero-copy > p:not(.eyebrow), .public-section-heading > p:not(.eyebrow) { max-width: 590px; color: #708176; font-size: 1.05rem; line-height: 1.75; }.public-hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }.hero-farm-card { min-height: 330px; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 2rem; border: 1px solid #b9d09d; border-radius: 28px; color: #dbe8d3; background: linear-gradient(145deg, #1c4c3b, #2d6d4d); box-shadow: 0 24px 60px rgba(23,61,49,.18); text-align: center; }.hero-card-mark { display: grid; place-items: center; width: 5rem; height: 5rem; margin-bottom: 1.5rem; border: 1px solid rgba(203,221,154,.55); border-radius: 50%; color: #cbdd9a; font-size: 2rem; }.hero-farm-card p { margin: 0 0 .5rem; color: #cbdd9a; font-size: .75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }.hero-farm-card strong { color: #fff; font: 500 2rem/1.1 Georgia, serif; }.hero-farm-card small { margin-top: 1rem; color: #b9d2c0; }
 .public-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 1240px; margin: 0 auto; padding: 0 clamp(1.2rem, 5vw, 4rem) 5rem; }.public-features > div { padding: 1.5rem; border-top: 2px solid #cbdd9a; }.public-features span { color: #5a8e64; font-size: .75rem; font-weight: 800; }.public-features h2 { margin: .9rem 0 .5rem; color: #315942; font: 500 1.45rem Georgia, serif; }.public-features p { margin: 0; color: #84938a; font-size: .84rem; line-height: 1.7; }
 .public-section-heading { max-width: 1240px; margin: 0 auto; padding: 4rem clamp(1.2rem, 5vw, 4rem) 1.5rem; }.public-section-heading h1 { font-size: clamp(2.7rem, 6vw, 5.2rem); }.public-marketplace { min-height: 80vh; }.public-marketplace .farmer-marketplace-browse { max-width: 1240px; margin: 0 auto; padding: 1rem clamp(1.2rem, 5vw, 4rem) 4rem; }.public-marketplace .marketplace-hero { display: none; }
-.public-contact { min-height: 70vh; }.contact-card { display: flex; align-items: center; justify-content: space-between; gap: 2rem; max-width: 900px; margin: 1rem auto 5rem; padding: 2rem; border: 1px solid #d6e4d0; border-radius: 16px; background: #fff; box-shadow: 0 20px 55px rgba(35,60,41,.06); }.contact-icon { color: #5a8e64; font-size: 1.6rem; }.contact-card h2 { margin: .6rem 0; color: #315942; font: 500 1.8rem Georgia, serif; }.contact-card p { max-width: 500px; color: #84938a; line-height: 1.6; }.contact-card a { color: #2f694a; font-weight: 800; }.public-footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.4rem clamp(1.2rem, 5vw, 4.5rem); border-top: 1px solid #dfe8da; color: #84938a; background: #edf3e8; font-size: .75rem; }
+.public-contact { min-height: 70vh; }.contact-card { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: center; justify-content: space-between; gap: 2rem; max-width: 900px; margin: 1rem auto 5rem; padding: 2rem; border: 1px solid #d6e4d0; border-radius: 16px; background: #fff; box-shadow: 0 20px 55px rgba(35,60,41,.06); }.contact-card::before { position: absolute; inset: 0; z-index: -1; content: ''; background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url('./assets/goats-home.jpg') center / cover no-repeat; opacity: .28; }.contact-card > * { position: relative; z-index: 1; }.contact-icon { color: #5a8e64; font-size: 1.6rem; }.contact-card h2 { margin: .6rem 0; color: #315942; font: 500 1.8rem Georgia, serif; }.contact-card p { max-width: 500px; color: #84938a; line-height: 1.6; }.contact-card a { color: #2f694a; font-weight: 800; }.public-footer { display: flex; justify-content: space-between; gap: 1rem; padding: 1.4rem clamp(1.2rem, 5vw, 4.5rem); border-top: 1px solid #dfe8da; color: #84938a; background: #edf3e8; font-size: .75rem; }
 .back-home-button { align-self: flex-start; margin-bottom: 1rem; border: 0; color: #477155; background: none; cursor: pointer; font-size: .8rem; font-weight: 800; }
 @media (max-width: 760px) { .public-header { flex-wrap: wrap; }.public-nav { order: 3; width: 100%; justify-content: center; gap: 1rem; }.public-actions { margin-left: auto; }.public-actions .quiet-button { display: none; }.public-hero { grid-template-columns: 1fr; padding-top: 3.5rem; }.hero-farm-card { min-height: 250px; }.public-features { grid-template-columns: 1fr; padding-bottom: 3rem; }.contact-card { align-items: flex-start; flex-direction: column; margin: 1rem 1.2rem 3rem; }.public-footer { flex-direction: column; } }
 
@@ -340,3 +340,85 @@ legend { padding: 0; margin-bottom: 0.25rem; }
 .sidebar-brand .brand-dot { width: 12rem; height: 6.2rem; }
 .public-brand .brand-dot { width: 12rem; height: 5rem; }
 .mobile-brand .brand-dot { width: 7rem; height: 3.2rem; }
+
+.notification-wrap { position: relative; }
+.notification-button { position: relative; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border: 1px solid #d6e1d1; border-radius: 50%; color: #477155; background: #fff; cursor: pointer; }
+.notification-button:hover { background: #eef5eb; }
+.notification-icon { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.notification-count { position: absolute; top: -0.35rem; right: -0.35rem; min-width: 1rem; padding: .12rem .25rem; border-radius: 99px; color: #fff; background: #b34b3f; font-size: .6rem; font-weight: 800; text-align: center; }
+.notification-panel { position: absolute; top: calc(100% + .7rem); right: 0; z-index: 40; width: min(90vw, 350px); padding: 1rem; border: 1px solid #dfe8da; border-radius: 13px; background: #fff; box-shadow: 0 18px 45px rgba(35,60,41,.16); }
+.notification-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: .7rem; border-bottom: 1px solid #edf1e9; color: #315942; }.notification-heading button { border: 0; color: #84938a; background: none; cursor: pointer; font-size: .7rem; }
+.notification-list { display: grid; gap: .65rem; padding-top: .7rem; }.notification-item { display: flex; align-items: flex-start; gap: .55rem; width: 100%; padding: .65rem; border: 0; border-radius: 8px; color: #708176; background: #f8fbf6; cursor: pointer; font: inherit; font-size: .75rem; line-height: 1.45; text-align: left; }.notification-item:hover { background: #eef5eb; }.notification-item.urgent { background: #fff4f1; }.notification-item.warning { background: #fff8df; }.notification-item.read { opacity: .62; }.notification-dot { width: .5rem; height: .5rem; flex: 0 0 auto; margin-top: .32rem; border-radius: 50%; background: #5a8e64; }.urgent .notification-dot { background: #b34b3f; }.warning .notification-dot { background: #d59b3f; }.notification-item.read .notification-dot { background: #b8c7b5; }.notification-empty { margin: .8rem 0 .2rem; color: #84938a; font-size: .78rem; }
+
+/* Center record forms within the dashboard content area. */
+.animal-form, .milk-form, .vaccination-form, .weight-form, .breeding-form, .listing-form, .settings-form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Homepage farm-photo decoration using the supplied goat and cow photos. */
+.hero-farm-card { position: relative; overflow: hidden; isolation: isolate; }
+.hero-farm-card::before, .hero-farm-card::after { position: absolute; inset: 0; z-index: 0; content: ''; background-position: center; background-size: cover; opacity: .38; }
+.hero-farm-card::before { right: 50%; background-image: url('./assets/goats-home.jpg'); }
+.hero-farm-card::after { left: 50%; background-image: url('./assets/cows-home.jpg'); }
+
+/* Keep marketplace listing details readable over listing photos. */
+.marketplace-page .listing-card,
+.farmer-marketplace-browse .listing-card {
+  position: relative;
+  background: #173d31;
+}
+
+.marketplace-page .listing-image,
+.farmer-marketplace-browse .listing-image {
+  height: 250px;
+}
+
+.marketplace-page .listing-card-body,
+.farmer-marketplace-browse .listing-card-body {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 2.5rem 1rem 1rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .78));
+}
+
+.marketplace-page .listing-card-body h3,
+.marketplace-page .listing-card-body p,
+.marketplace-page .listing-card-body strong,
+.marketplace-page .listing-card-body small,
+.marketplace-page .listing-category,
+.farmer-marketplace-browse .listing-card-body h3,
+.farmer-marketplace-browse .listing-card-body p,
+.farmer-marketplace-browse .listing-card-body strong,
+.farmer-marketplace-browse .listing-card-body small,
+.farmer-marketplace-browse .listing-category,
+.marketplace-page .listing-price span,
+.farmer-marketplace-browse .listing-price span {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .7);
+}
+
+.marketplace-page .listing-card-body p,
+.farmer-marketplace-browse .listing-card-body p {
+  min-height: 2.2rem;
+}
+
+.marketplace-modal-image {
+  width: calc(100% + 3rem);
+  height: 190px;
+  margin: -1.5rem -1.5rem .25rem;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+}
+
+@media (max-width: 540px) {
+  .marketplace-page .listing-image,
+  .farmer-marketplace-browse .listing-image {
+    height: 230px;
+  }
+}
+.hero-farm-card > * { position: relative; z-index: 1; }

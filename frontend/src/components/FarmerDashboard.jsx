@@ -9,6 +9,7 @@ import ReportsManager from './ReportsManager'
 import MarketplaceManager from './MarketplaceManager'
 import MarketplaceBrowse from './MarketplaceBrowse'
 import SettingsManager from './SettingsManager'
+import NotificationBell from './NotificationBell'
 
 const menuItems = [
   ['marketplace', '→', 'Marketplace'],
@@ -94,7 +95,7 @@ function FarmerDashboard({ user, token, onLogout, onUserUpdated }) {
         <header className="dashboard-header">
           <button className="mobile-menu-button" type="button" aria-label="Open dashboard navigation" aria-expanded={sidebarOpen} onClick={() => setSidebarOpen((open) => !open)}><span /><span /><span /></button>
           <div className="mobile-brand"><span className="brand-dot">LM</span><strong>Livestock Manager</strong></div>
-          <div className="header-actions"><div className="avatar">{user.name.charAt(0).toUpperCase()}</div><div className="user-info"><strong>{user.name}</strong><span>Farmer account</span></div><button className="logout-button header-logout-button" type="button" onClick={onLogout}>Log out</button></div>
+          <div className="header-actions"><NotificationBell token={token} onLogout={onLogout} /><div className="avatar">{user.name.charAt(0).toUpperCase()}</div><div className="user-info"><strong>{user.name}</strong><span>Farmer account</span></div><button className="logout-button header-logout-button" type="button" onClick={onLogout}>Log out</button></div>
         </header>
         {sidebarOpen && <button className="mobile-sidebar-backdrop" type="button" aria-label="Close dashboard navigation" onClick={() => setSidebarOpen(false)} />}
 
