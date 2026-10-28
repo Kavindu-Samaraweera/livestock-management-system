@@ -77,7 +77,6 @@ function FarmerDashboard({ user, token, onLogout, onUserUpdated }) {
     <div className="dashboard-shell">
       <aside className={sidebarOpen ? 'dashboard-sidebar mobile-sidebar-open' : 'dashboard-sidebar'}>
         <div className="sidebar-brand"><span className="brand-dot">LM</span><span>Livestock<br /><strong>Manager</strong></span></div>
-        <p className="sidebar-label">Workspace</p>
         <nav aria-label="Farmer dashboard navigation">
           {orderedMenuItems.map(([key, icon, label]) => (
             <button key={key} type="button" className={activeSection === key ? 'nav-item active' : 'nav-item'} onClick={() => handleSectionChange(key)}>
