@@ -10,7 +10,13 @@ const errorHandler = (error, req, res, next) => {
   if (res.headersSent) return next(error);
 
   if (error.name === 'ValidationError') {
-    return res.status(400).json({ message: 'Request validation failed.' });
+    const errors = Object.fromEntries(
+      Object.entries(error.errors || {}).map(([field, fieldError]) => [field, fieldError.message])
+    );
+    return res.status(400).json({
+      message: 'Request validation failed.',
+      errors
+    });
   }
 
   if (error.name === 'CastError') {

@@ -6,7 +6,28 @@ const blank = { category: 'animal', animal: '', title: '', description: '', pric
 
 function MarketplaceManager({ token, onLogout }) {
   const [listings, setListings] = useState([]); const [orders, setOrders] = useState([]); const [animals, setAnimals] = useState([]); const [form, setForm] = useState(blank); const [editing, setEditing] = useState(null); const [tab, setTab] = useState('listings'); const [error, setError] = useState(''); const [notice, setNotice] = useState(''); const [loading, setLoading] = useState(true)
-  const load = useCallback(async () => { setLoading(true); try { const [listingData, orderData, animalData] = await Promise.all([fetchMyListings(token), fetchSellerOrders(token), fetchAnimals(token, { search: '', species: '', sex: '', sort: 'tagId' })]); setListings(listingData.listings); setOrders(orderData.orders); setAnimals(animalData.animals) } catch (requestError) { setError(requestError.message); if (requestError.status === 401 || requestError.status === 403) onLogout() } finally { setLoading(false) } }, [onLogout, token])
+  const load = useCallback(async () => {
+    setLoading(true)
+    try {
+      const results = await Promise.allSettled([
+        fetchMyListings(token),
+        fetchSellerOrders(token),
+        fetchAnimals(token, { search: '', species: '', sex: '', sort: 'tagId' })
+      ])
+      const failed = results.find((result) => result.status === 'rejected')
+      if (failed) {
+        const requestError = failed.reason
+        const details = Object.values(requestError.fields || {}).join(' ')
+        throw new Error(`${requestError.message}${details ? ` ${details}` : ''}`)
+      }
+      setListings(results[0].value.listings)
+      setOrders(results[1].value.orders)
+      setAnimals(results[2].value.animals)
+    } catch (requestError) {
+      setError(requestError.message)
+      if (requestError.status === 401 || requestError.status === 403) onLogout()
+    } finally { setLoading(false) }
+  }, [onLogout, token])
   useEffect(() => { const timeout = window.setTimeout(load, 0); return () => window.clearTimeout(timeout) }, [load])
   const change = (event) => { const { name, value } = event.target; setForm((current) => ({ ...current, [name]: value })); setError('') }
   const chooseAnimal = (event) => { const animal = animals.find((item) => item._id === event.target.value); setForm((current) => ({ ...current, animal: event.target.value, title: animal ? `${animal.species === 'cow' ? 'Cow' : 'Goat'} - ${animal.tagId}` : '', unit: 'animal', availableQuantity: '1' })) }
